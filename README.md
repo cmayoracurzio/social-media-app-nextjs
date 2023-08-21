@@ -1,6 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Social Media App (project)
 
-## Getting Started
+This is a Social Media App project to experiment with full stack web development using modern technologies.
+
+## Technologies used
+
+- Next.js 13 (app router)
+- Tailwind CSS
+- Clerk (Authentication)
+- MongoDB
+- Uploadthing
+
+## Getting started
 
 First, run the development server:
 
