@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, usePathname } from "next/navigation";
 import { PostValidation } from "@/lib/validations/post";
 import { createPost } from "@/lib/actions/post.actions";
+import { useOrganization } from "@clerk/nextjs";
 
 interface Props {
   userId: string;
@@ -24,6 +25,7 @@ interface Props {
 const CreatePost = ({ userId }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { organization } = useOrganization();
 
   const form = useForm({
     resolver: zodResolver(PostValidation),
@@ -37,9 +39,10 @@ const CreatePost = ({ userId }: Props) => {
     await createPost({
       text: values.post,
       author: userId,
-      communityId: null,
+      communityId: organization ? organization.id : null,
       path: pathname,
     });
+
     router.push("/");
   };
 
@@ -54,12 +57,9 @@ const CreatePost = ({ userId }: Props) => {
           name="post"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full gap-3">
-              <FormLabel className="text-base-semibold text-light-2">
-                Content
-              </FormLabel>
               <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
                 <Textarea
-                  rows={10}
+                  rows={11}
                   className="account-form_input no-focus"
                   {...field}
                 />
