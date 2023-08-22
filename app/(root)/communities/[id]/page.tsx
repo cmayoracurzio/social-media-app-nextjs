@@ -29,13 +29,13 @@ async function Page({ params }: { params: { id: string } }) {
       />
 
       <div className="mt-9">
-        <Tabs defaultValue="posts" className="w-full">
-          <TabsList className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2">
+        <Tabs defaultValue="posts">
+          <TabsList className="w-full bg-dark-2 min-h-[50px] flex items-center gap-1 rounded-lg">
             {communityTabs.map((tab) => (
               <TabsTrigger
                 key={tab.label}
                 value={tab.value}
-                className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2"
+                className="min-h-[41px] flex flex-1 items-center gap-2 rounded-md text-light-2 data-[state=active]:bg-indigo-500 hover:bg-dark-4 data-[state=active]:text-light-2"
               >
                 <Image
                   src={tab.icon}
@@ -55,7 +55,7 @@ async function Page({ params }: { params: { id: string } }) {
             ))}
           </TabsList>
 
-          <TabsContent value="posts" className="w-full text-light-1">
+          <TabsContent value="posts">
             <PostsTab
               currentUserId={user.id}
               accountId={communityDetails._id}
@@ -63,8 +63,8 @@ async function Page({ params }: { params: { id: string } }) {
             />
           </TabsContent>
 
-          <TabsContent value="members" className="mt-9 w-full text-light-1">
-            <section className="mt-9 flex flex-col gap-10">
+          <TabsContent value="members">
+            <section className="mt-10 flex flex-col gap-10">
               {communityDetails.members.map((member: any) => (
                 <UserCard
                   key={member.id}
@@ -78,12 +78,10 @@ async function Page({ params }: { params: { id: string } }) {
             </section>
           </TabsContent>
 
-          <TabsContent value="requests" className="w-full text-light-1">
-            <PostsTab
-              currentUserId={user.id}
-              accountId={communityDetails._id}
-              accountType="Community"
-            />
+          <TabsContent value="requests">
+            <p className="mt-10 text-center text-base-regular text-light-3">
+              Coming soon
+            </p>
           </TabsContent>
         </Tabs>
       </div>

@@ -26,13 +26,13 @@ async function Page({ params }: { params: { id: string } }) {
         bio={userInfo.bio}
       />
       <div className="mt-9">
-        <Tabs defaultValue="posts" className="w-full">
-          <TabsList className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2">
+        <Tabs defaultValue="posts">
+          <TabsList className="w-full bg-dark-2 min-h-[50px] flex items-center gap-1 rounded-lg">
             {profileTabs.map((tab) => (
               <TabsTrigger
                 key={tab.label}
                 value={tab.value}
-                className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2"
+                className="min-h-[41px] flex flex-1 items-center gap-2 rounded-md text-light-2 data-[state=active]:bg-indigo-500 hover:bg-dark-4 data-[state=active]:text-light-2"
               >
                 <Image
                   src={tab.icon}
@@ -51,19 +51,26 @@ async function Page({ params }: { params: { id: string } }) {
               </TabsTrigger>
             ))}
           </TabsList>
-          {profileTabs.map((tab) => (
-            <TabsContent
-              key={`content-${tab.label}`}
-              value={tab.value}
-              className="w-full text-light-1"
-            >
-              <PostsTab
-                currentUserId={user.id}
-                accountId={userInfo.id}
-                accountType="User"
-              />
-            </TabsContent>
-          ))}
+
+          <TabsContent value="posts">
+            <PostsTab
+              currentUserId={user.id}
+              accountId={userInfo.id}
+              accountType="User"
+            />
+          </TabsContent>
+
+          <TabsContent value="replies">
+            <p className="mt-10 text-center text-base-regular text-light-3">
+              Coming soon
+            </p>
+          </TabsContent>
+
+          <TabsContent value="tagged">
+            <p className="mt-10 text-center text-base-regular text-light-3">
+              Coming soon
+            </p>
+          </TabsContent>
         </Tabs>
       </div>
     </section>
