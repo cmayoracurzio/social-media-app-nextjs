@@ -27,9 +27,13 @@ async function Page({ params }: { params: { id: string } }) {
       />
       <div className="mt-9">
         <Tabs defaultValue="posts" className="w-full">
-          <TabsList className="tab">
+          <TabsList className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2">
             {profileTabs.map((tab) => (
-              <TabsTrigger key={tab.label} value={tab.value} className="tab">
+              <TabsTrigger
+                key={tab.label}
+                value={tab.value}
+                className="flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2"
+              >
                 <Image
                   src={tab.icon}
                   alt={tab.label}
@@ -40,7 +44,7 @@ async function Page({ params }: { params: { id: string } }) {
                 <p className="max-sm:hidden">{tab.label}</p>
 
                 {tab.label === "Posts" && (
-                  <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
+                  <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 text-tiny-medium text-light-2">
                     {userInfo?.posts?.length}
                   </p>
                 )}

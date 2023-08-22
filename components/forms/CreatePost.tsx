@@ -57,10 +57,10 @@ const CreatePost = ({ userId }: Props) => {
           name="post"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full gap-3">
-              <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
+              <FormControl className="focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 border border-dark-4 bg-dark-3 text-light-1">
                 <Textarea
                   rows={11}
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -68,7 +68,10 @@ const CreatePost = ({ userId }: Props) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-primary-500 rounded-3xl">
+        <Button
+          type="submit"
+          className="rounded-3xl bg-indigo-500 hover:bg-indigo-800 px-5 py-2 text-light-1"
+        >
           Create Post
         </Button>
       </form>

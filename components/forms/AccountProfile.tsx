@@ -114,7 +114,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           name="profile_photo"
           render={({ field }) => (
             <FormItem className="flex items-center gap-4">
-              <FormLabel className="account-form_image-label">
+              <FormLabel className="flex h-24 w-24 items-center justify-center rounded-full bg-dark-4">
                 {field.value ? (
                   <Image
                     src={field.value}
@@ -139,7 +139,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   type="file"
                   accept="image/"
                   placeholder="Upload a photo"
-                  className="account-form_image-input"
+                  className="cursor-pointer border-none bg-transparent outline-none file:text-blue"
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
               </FormControl>
@@ -159,7 +159,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl>
                 <Input
                   type="text"
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -179,7 +179,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl>
                 <Input
                   type="text"
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -199,7 +199,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
               <FormControl>
                 <Textarea
                   rows={10}
-                  className="account-form_input no-focus"
+                  className="border border-dark-4 bg-dark-3 text-light-1 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                   {...field}
                 />
               </FormControl>
@@ -208,7 +208,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           )}
         />
 
-        <Button type="submit" className="bg-primary-500 rounded-3xl">
+        <Button
+          type="submit"
+          className="rounded-3xl bg-indigo-500 hover:bg-indigo-800 px-5 py-2 text-light-1"
+        >
           Submit
         </Button>
       </form>

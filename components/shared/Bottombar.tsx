@@ -11,8 +11,8 @@ const Bottombar = () => {
   const { userId } = useAuth();
 
   return (
-    <section className="bottombar">
-      <div className="bottombar_container">
+    <section className="fixed bottom-0 z-10 w-full bg-glassmorphism p-4 backdrop-blur-lg md:hidden">
+      <div className="flex items-center justify-evenly gap-4">
         {sidebarLinks.map((link) => {
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
@@ -25,7 +25,9 @@ const Bottombar = () => {
                   : link.route
               }
               key={link.label}
-              className={`leftsidebar_link ${isActive && "bg-primary-500"}`}
+              className={`relative flex flex-col items-center gap-2 rounded-lg p-3 ${
+                isActive && "bg-indigo-500"
+              }`}
             >
               <Image
                 src={link.imgURL}
@@ -33,9 +35,6 @@ const Bottombar = () => {
                 width={24}
                 height={24}
               />
-              {/* <p className="text-subtle-medium text-light 1 max-sm:hidden">
-                {link.label.split(/\s+/)[0]}
-              </p> */}
             </Link>
           );
         })}

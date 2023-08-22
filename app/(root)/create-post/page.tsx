@@ -12,7 +12,7 @@ async function Page() {
 
   return (
     <>
-      <h1 className="head-text">Create Post</h1>
+      <h1 className="text-heading2-bold text-light-1">Create Post</h1>
       <CreatePost userId={JSON.stringify(userInfo._id)} />
     </>
   );

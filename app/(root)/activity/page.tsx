@@ -11,18 +11,21 @@ const Page = async () => {
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
 
-  // getActivity
   const activity = await getActivity(userInfo._id);
 
   return (
     <>
-      <h1 className="head-text mb-10">Activity</h1>
+      <h1 className="text-heading2-bold text-light-1">Activity</h1>
       <section className="mt-10 flex flex-col gap-5">
-        {activity.length > 0 ? (
+        {activity.length === 0 ? (
+          <p className="text-center text-base-regular text-light-3">
+            No activity found
+          </p>
+        ) : (
           <>
             {activity.map((activity) => (
               <Link key={activity._id} href={`/post/${activity.parentId}`}>
-                <article className="activity-card">
+                <article className="flex items-center gap-2 rounded-md bg-dark-2 px-7 py-4">
                   <Image
                     src={activity.author.image}
                     alt="Profile picture"
@@ -30,8 +33,8 @@ const Page = async () => {
                     height={20}
                     className="rounded-full object-cover"
                   />
-                  <p className="!text-small-regular text-light-1">
-                    <span className="mr-1 text-primary-500">
+                  <p className="text-small-regular text-light-1">
+                    <span className="mr-1 text-indigo-500">
                       {activity.author.name}
                     </span>{" "}
                     replied to your post
@@ -40,8 +43,6 @@ const Page = async () => {
               </Link>
             ))}
           </>
-        ) : (
-          <p className="!text-base-regular text-light-3">No activity yet</p>
         )}
       </section>
     </>

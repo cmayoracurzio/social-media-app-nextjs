@@ -47,7 +47,10 @@ const Comment = ({ postId, currentUserImg, currentUserId }: Props) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="comment-form">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mt-10 flex items-center gap-4 border-y border-y-dark-4 py-5 max-xs:flex-col"
+      >
         <FormField
           control={form.control}
           name="post"
@@ -66,14 +69,17 @@ const Comment = ({ postId, currentUserImg, currentUserId }: Props) => {
                 <Input
                   type="text"
                   placeholder="Comment..."
-                  className="no-focus text-light-1 outline-none"
+                  className="focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 text-light-1 outline-none"
                   {...field}
                 />
               </FormControl>
             </FormItem>
           )}
         />
-        <Button type="submit" className="comment-form_btn">
+        <Button
+          type="submit"
+          className="rounded-3xl bg-indigo-500 hover:bg-indigo-800 px-5 py-2 text-light-1"
+        >
           Reply
         </Button>
       </form>

@@ -54,7 +54,7 @@ const PostCard = ({
                 className="cursor-pointer rounded-full"
               />
             </Link>
-            <div className="post-card_bar" />
+            <div className="relative mt-2 w-0.5 grow rounded-full bg-neutral-800" />
           </div>
           <div className="flex w-full flex-col">
             <Link href={`/profile/${author.id}`} className="w-fit">

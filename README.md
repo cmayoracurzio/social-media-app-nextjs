@@ -4,8 +4,9 @@ This is a Social Media App project to experiment with full stack web development
 
 ## Technologies used
 
-- Next.js 13 (app router)
+- Next.js 13 (including app router, server actions)
 - Tailwind CSS
+- Shadcn/ui components
 - Clerk (Authentication)
 - MongoDB
 - Uploadthing
