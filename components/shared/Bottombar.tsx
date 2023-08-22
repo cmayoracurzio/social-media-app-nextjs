@@ -26,7 +26,9 @@ const Bottombar = () => {
               }
               key={link.label}
               className={`relative flex flex-col items-center gap-2 rounded-lg p-3 ${
-                isActive && "bg-indigo-500"
+                isActive
+                  ? "bg-indigo-500"
+                  : "hover:bg-dark-4 transition-colors duration-75"
               }`}
             >
               <Image
