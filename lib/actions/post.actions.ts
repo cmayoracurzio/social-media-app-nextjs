@@ -166,7 +166,6 @@ export async function fetchPostById(postId: string) {
   try {
     connectToDB();
 
-    // TODO: Populate community
     const post = await Post.findById(postId)
       .populate({
         path: "author",

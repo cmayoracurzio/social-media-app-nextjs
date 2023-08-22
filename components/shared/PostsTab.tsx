@@ -46,38 +46,45 @@ async function PostsTab({ currentUserId, accountId, accountType }: Props) {
   } else {
     result = await fetchUserPosts(accountId);
   }
+  console.log(result.posts);
 
   if (!result) {
     redirect("/");
   }
 
   return (
-    <section className="mt-9 flex flex-col gap-10">
-      {result.posts.map((post) => (
-        <PostCard
-          key={post._id}
-          id={post._id}
-          currentUserId={currentUserId}
-          parentId={post.parentId}
-          content={post.text}
-          author={
-            accountType === "User"
-              ? { name: result.name, image: result.image, id: result.id }
-              : {
-                  name: post.author.name,
-                  image: post.author.image,
-                  id: post.author.id,
-                }
-          }
-          community={
-            accountType === "Community"
-              ? { name: result.name, id: result.id, image: result.image }
-              : post.community
-          }
-          createdAt={post.createdAt}
-          comments={post.children}
-        />
-      ))}
+    <section className="mt-10 flex flex-col gap-10">
+      {result.posts.length === 0 ? (
+        <p className="text-center text-base-regular text-light-3">
+          No posts yet
+        </p>
+      ) : (
+        result.posts.map((post) => (
+          <PostCard
+            key={post._id}
+            id={post._id}
+            currentUserId={currentUserId}
+            parentId={post.parentId}
+            content={post.text}
+            author={
+              accountType === "User"
+                ? { name: result.name, image: result.image, id: result.id }
+                : {
+                    name: post.author.name,
+                    image: post.author.image,
+                    id: post.author.id,
+                  }
+            }
+            community={
+              accountType === "Community"
+                ? { name: result.name, id: result.id, image: result.image }
+                : post.community
+            }
+            createdAt={post.createdAt}
+            comments={post.children}
+          />
+        ))
+      )}
     </section>
   );
 }

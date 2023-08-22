@@ -1,22 +1,23 @@
 "use client";
+
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { CommentValidation } from "@/lib/validations/post";
+import { addCommentToPost } from "@/lib/actions/post.actions";
+
+import { usePathname } from "next/navigation";
+
+import Image from "next/image";
+import { Input } from "../ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter, usePathname } from "next/navigation";
-import { CommentValidation } from "@/lib/validations/post";
-import { Input } from "../ui/input";
-import Image from "next/image";
-import { addCommentToPost } from "@/lib/actions/post.actions";
 
 interface Props {
   postId: string;
@@ -25,7 +26,6 @@ interface Props {
 }
 
 const Comment = ({ postId, currentUserImg, currentUserId }: Props) => {
-  const router = useRouter();
   const pathname = usePathname();
 
   const form = useForm({

@@ -19,9 +19,9 @@ const Page = async () => {
   });
 
   return (
-    <section>
+    <>
       <h1 className="text-heading2-bold text-light-1">Communities</h1>
-      <div className="mt-14 flex flex-col gap-9">
+      <section className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-9">
         {result.communities.length === 0 ? (
           <p className="text-center text-base-regular text-light-3">
             No communities found
@@ -41,8 +41,8 @@ const Page = async () => {
             ))}
           </>
         )}
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

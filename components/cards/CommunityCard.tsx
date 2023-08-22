@@ -16,7 +16,7 @@ interface Props {
 
 function CommunityCard({ id, name, username, imgUrl, bio, members }: Props) {
   return (
-    <article className="w-full rounded-lg bg-dark-3 px-4 py-5 sm:w-96">
+    <article className="w-full rounded-lg bg-dark-3 p-7">
       <div className="flex flex-wrap items-center gap-3">
         <Link href={`/communities/${id}`} className="relative h-12 w-12">
           <Image
@@ -35,15 +35,7 @@ function CommunityCard({ id, name, username, imgUrl, bio, members }: Props) {
         </div>
       </div>
 
-      <p className="mt-4 text-subtle-medium text-gray-1">{bio}</p>
-
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-        <Link href={`/communities/${id}`}>
-          <Button className="rounded-3xl bg-indigo-500 hover:bg-indigo-800 px-5 py-2 text-light-1">
-            View
-          </Button>
-        </Link>
-
         {members.length > 0 && (
           <div className="flex items-center">
             {members.map((member, index) => (
@@ -58,13 +50,17 @@ function CommunityCard({ id, name, username, imgUrl, bio, members }: Props) {
                 } rounded-full object-cover`}
               />
             ))}
-            {members.length > 3 && (
-              <p className="ml-1 text-subtle-medium text-gray-1">
-                {members.length}+ Users
-              </p>
-            )}
+            <p className="ml-4 text-subtle-medium text-gray-1">
+              {members.length + (members.length === 1 ? " User" : " Users")}
+            </p>
           </div>
         )}
+
+        <Link href={`/communities/${id}`}>
+          <Button className="rounded-3xl bg-indigo-500 hover:bg-indigo-800 px-5 py-2 text-light-1">
+            View
+          </Button>
+        </Link>
       </div>
     </article>
   );
