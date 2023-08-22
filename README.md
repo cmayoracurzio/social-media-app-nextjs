@@ -26,13 +26,13 @@ Ensure you have the following software installed:
 1. Clone the repo
 
 ```
-$ git clone https://github.com/{cmayoracurzio}/car-rental-app-nextjs.git
+$ git clone https://github.com/{cmayoracurzio}/social-media-app-nextjs.git
 ```
 
 2. Change to the project directory
 
 ```
-$ cd car-rental-app-nextjs
+$ cd social-media-app-nextjs
 ```
 
 3. Install dependencies
