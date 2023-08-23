@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
 
 interface Props {
   accountId: string;
@@ -41,24 +42,19 @@ function ProfileHeader({
           </div>
         </div>
         {accountId === authUserId && type !== "Community" && (
-          <Link href="/profile/edit">
-            <div className="flex cursor-pointer gap-3 rounded-lg bg-dark-3 px-4 py-2">
-              <Image
-                src="/assets/edit.svg"
-                alt="logout"
-                width={16}
-                height={16}
-              />
-
-              <p className="text-light-2 max-sm:hidden">Edit</p>
-            </div>
+          <Link
+            href="/profile/edit"
+            className="flex items-center cursor-pointer gap-2 rounded-lg bg-dark-3 p-4 sm:px-4 sm:py-3 hover:bg-dark-4 border border-dark-4"
+          >
+            <PencilSquareIcon className="object-contain w-5 h-5 text-indigo-500" />
+            <p className="text-light-2 max-sm:hidden">Edit</p>
           </Link>
         )}
       </div>
 
       <p className="mt-6 max-w-lg text-base-regular text-light-2">{bio}</p>
 
-      <div className="mt-12 h-0.5 w-full bg-dark-3" />
+      <div className="mt-12 h-0.5 w-full bg-dark-4" />
     </div>
   );
 }

@@ -1,44 +1,57 @@
+import {
+  HomeIcon,
+  MagnifyingGlassIcon,
+  HeartIcon,
+  PaperAirplaneIcon,
+  UserGroupIcon,
+  UserIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  TagIcon,
+  UsersIcon,
+  UserPlusIcon,
+} from "@heroicons/react/24/outline";
+
 export const sidebarLinks = [
   {
-    imgURL: "/assets/home.svg",
+    icon: HomeIcon,
     route: "/",
     label: "Home",
   },
   {
-    imgURL: "/assets/search.svg",
+    icon: MagnifyingGlassIcon,
     route: "/search",
     label: "Search",
   },
   {
-    imgURL: "/assets/heart.svg",
+    icon: HeartIcon,
     route: "/activity",
     label: "Activity",
   },
   {
-    imgURL: "/assets/create.svg",
+    icon: PaperAirplaneIcon,
     route: "/create-post",
     label: "Create Post",
   },
   {
-    imgURL: "/assets/community.svg",
+    icon: UserGroupIcon,
     route: "/communities",
     label: "Communities",
   },
   {
-    imgURL: "/assets/user.svg",
+    icon: UserIcon,
     route: "/profile",
     label: "Profile",
   },
 ];
 
 export const profileTabs = [
-  { value: "posts", label: "Posts", icon: "/assets/reply.svg" },
-  { value: "replies", label: "Replies", icon: "/assets/members.svg" },
-  { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
+  { value: "posts", label: "Posts", icon: PaperAirplaneIcon },
+  { value: "replies", label: "Replies", icon: ChatBubbleOvalLeftEllipsisIcon },
+  { value: "tagged", label: "Tagged", icon: TagIcon },
 ];
 
 export const communityTabs = [
-  { value: "posts", label: "Posts", icon: "/assets/reply.svg" },
-  { value: "members", label: "Members", icon: "/assets/members.svg" },
-  { value: "requests", label: "Requests", icon: "/assets/request.svg" },
+  { value: "posts", label: "Posts", icon: ChatBubbleOvalLeftEllipsisIcon },
+  { value: "members", label: "Members", icon: UsersIcon },
+  { value: "requests", label: "Requests", icon: UserPlusIcon },
 ];

@@ -16,7 +16,7 @@ interface Props {
 
 function CommunityCard({ id, name, username, imgUrl, bio, members }: Props) {
   return (
-    <article className="w-full rounded-lg bg-dark-3 p-7">
+    <article className="w-full rounded-lg bg-dark-3 p-7 border border-dark-4">
       <div className="flex flex-wrap items-center gap-3">
         <Link href={`/communities/${id}`} className="relative h-12 w-12">
           <Image

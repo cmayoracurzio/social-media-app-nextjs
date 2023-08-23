@@ -26,17 +26,10 @@ const Bottombar = () => {
               }
               key={link.label}
               className={`relative flex flex-col items-center gap-2 rounded-lg p-3 ${
-                isActive
-                  ? "bg-indigo-500"
-                  : "hover:bg-dark-4 transition-colors duration-75"
+                isActive ? "bg-indigo-500" : "hover:bg-dark-4"
               }`}
             >
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={24}
-                height={24}
-              />
+              <link.icon className="cursor-pointer object-contain w-7 h-7 text-light-1" />
             </Link>
           );
         })}

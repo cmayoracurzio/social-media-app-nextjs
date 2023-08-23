@@ -27,22 +27,15 @@ async function Page({ params }: { params: { id: string } }) {
       />
       <div className="mt-9">
         <Tabs defaultValue="posts">
-          <TabsList className="w-full bg-dark-2 min-h-[50px] flex items-center gap-1 rounded-lg">
+          <TabsList className="w-full bg-dark-2 min-h-[50px] flex items-center gap-2 rounded-lg border border-dark-4">
             {profileTabs.map((tab) => (
               <TabsTrigger
                 key={tab.label}
                 value={tab.value}
-                className="min-h-[41px] flex flex-1 items-center gap-2 rounded-md text-light-2 data-[state=active]:bg-indigo-500 hover:bg-dark-4 data-[state=active]:text-light-2"
+                className="min-h-[41px] flex flex-1 items-center gap-3 rounded-md text-light-4 data-[state=active]:bg-indigo-500 hover:bg-dark-4 data-[state=active]:text-light-2"
               >
-                <Image
-                  src={tab.icon}
-                  alt={tab.label}
-                  width={24}
-                  height={24}
-                  className="object-contain"
-                />
+                <tab.icon className="object-contain w-5 h-5 text:inherit" />
                 <p className="max-sm:hidden">{tab.label}</p>
-
                 {tab.label === "Posts" && (
                   <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 text-tiny-medium text-light-2">
                     {userInfo?.posts?.length}

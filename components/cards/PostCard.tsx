@@ -1,4 +1,11 @@
 import { formatDateString } from "@/lib/utils";
+import {
+  HeartIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  ArrowPathRoundedSquareIcon,
+  ShareIcon,
+  BookmarkIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,7 +47,7 @@ const PostCard = ({
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
-        isComment ? "px-0 xs:px-7 mb-12" : "bg-dark-2 p-7"
+        isComment ? "px-0 xs:px-7 mb-12" : "bg-dark-2 p-7 border border-dark-4"
       }`}
     >
       <div className="flex items-start justify-between">
@@ -58,44 +65,24 @@ const PostCard = ({
           </div>
           <div className="flex w-full flex-col">
             <Link href={`/profile/${author.id}`} className="w-fit">
-              <h4 className="cursor-pointer text-base-semibold text-light-1">
+              <h4 className="cursor-pointer text-base-semibold text-light-1 hover:underline hover:underline-offset-2">
                 {author.name}
               </h4>
             </Link>
 
-            <p className="mt-2 text-small-regular text-light-2">{content}</p>
+            <p className="mt-2 text-small-regular text-light-2 break-normal">
+              {content}
+            </p>
             <div className={`${isComment && "mb-5"} mt-5 flex flex-col gap-3`}>
-              <div className="flex gap-3.5">
-                <Image
-                  src="/assets/heart-gray.svg"
-                  alt="heart"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                />
+              <div className="flex gap-6 items-center">
+                <HeartIcon className="cursor-pointer object-contain w-6 h-6 text-light-4" />
                 <Link href={`/post/${id}`}>
-                  <Image
-                    src="/assets/reply.svg"
-                    alt="reply"
-                    width={24}
-                    height={24}
-                    className="cursor-pointer object-contain"
-                  />
+                  <ChatBubbleOvalLeftEllipsisIcon className="cursor-pointer object-contain w-6 h-6 text-light-4" />
                 </Link>
-                <Image
-                  src="/assets/repost.svg"
-                  alt="repost"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                />
-                <Image
-                  src="/assets/share.svg"
-                  alt="share"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                />
+                <ArrowPathRoundedSquareIcon className="cursor-pointer object-contain w-6 h-6 text-light-4" />
+                <BookmarkIcon className="cursor-pointer object-contain w-6 h-6 text-light-4" />
+
+                <ShareIcon className="cursor-pointer object-contain w-6 h-6 text-light-4" />
               </div>
             </div>
           </div>
@@ -105,23 +92,16 @@ const PostCard = ({
         {/* TODO: Show comment logos */}
       </div>
 
-      <div className="mt-5 flex items-center text-subtle-medium text-gray-1">
+      <div className="mt-6 flex items-center gap-1 text-subtle-medium text-gray-1">
         <p>{formatDateString(createdAt)}</p>
         {!isComment && community && (
           <>
-            <span className="mx-2"> - </span>
+            {" - "}
             <Link
               href={`/communities/${community.id}`}
-              className="flex items-center"
+              className="flex items-center hover:text-light-2"
             >
               {community.name} Community
-              <Image
-                src={community.image}
-                alt={community.name}
-                width={14}
-                height={14}
-                className="ml-2 rounded-full object-cover"
-              />
             </Link>
           </>
         )}
