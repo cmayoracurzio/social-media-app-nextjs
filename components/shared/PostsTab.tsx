@@ -46,7 +46,6 @@ async function PostsTab({ currentUserId, accountId, accountType }: Props) {
   } else {
     result = await fetchUserPosts(accountId);
   }
-  console.log(result.posts);
 
   if (!result) {
     redirect("/");

@@ -68,6 +68,7 @@ export async function fetchUserPosts(userId: string) {
     const posts = await User.findOne({ id: userId }).populate({
       path: "posts",
       model: Post,
+      options: { sort: { createdAt: -1 } },
       populate: [
         {
           path: "community",
