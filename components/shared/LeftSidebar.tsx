@@ -36,7 +36,7 @@ const LeftSidebar = () => {
           );
         })}
       </div>
-      <div className="mb-4 px-6">
+      <div className="mb-2 px-6">
         <SignOut />
       </div>
     </section>

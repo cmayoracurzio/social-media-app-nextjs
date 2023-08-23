@@ -1,4 +1,5 @@
 "use client";
+
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { SignOutButton, SignedIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";

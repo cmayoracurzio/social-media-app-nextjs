@@ -96,7 +96,7 @@ const PostCard = ({
         <p>{formatDateString(createdAt)}</p>
         {!isComment && community && (
           <>
-            {" - "}
+            {" · "}
             <Link
               href={`/communities/${community.id}`}
               className="flex items-center hover:text-light-2"
